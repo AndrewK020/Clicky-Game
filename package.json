@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://andrewk020.github.io/Clicky-Game/",
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "jshint": "^2.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -32,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
