@@ -1,0 +1,57 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+.navbar {
+    background-color: #00BFFF!important;
+}
+
+#title {
+    margin-left: 9%;
+}
+
+h5, h3 {
+    color: white;
+}
+
+img {
+    max-width: 80%;
+    padding-left: 30%;
+}
+
+.centered {
+    position: absolute;
+    top: 14%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 52px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 8px;
+    
+}
+
+.instruction {
+    font-size: 21px;
+    margin-top: 20px;
+    padding-left: 28%;
+}
+
+.colorBox {
+    display:block;
+    float: left;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    margin: 30px;
+}
+
+.colorBox:hover {
+    transform: scale(1.05);
+}
+
+#colorGrid {
+    padding-left: 20% !important;
+}
