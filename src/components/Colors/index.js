@@ -4,53 +4,53 @@ import "./style.css";
 const colors = [
     {
       id: 1,
-      "background-color": 'red',
+      "backgroundColor": 'red',
       color: 'red'
     },
     {
       id: 2,
-      "background-color": 'orange',
+      "backgroundColor": 'orange',
       color: 'orange'
     },
     {
-      id: 2,
-      "background-color": 'blue',
+      id: 3,
+      "backgroundColor": 'blue',
       color: 'blue'
     },
     {
-      id: 3,
-      "background-color": 'green',
+      id: 4,
+      "backgroundColor": 'green',
       color: 'green'
     },
     {
-      id: 4,
-      "background-color": 'yellow',
+      id: 5,
+      "backgroundColor": 'yellow',
       color: 'yellow'
     },
     {
-      id: 5,
-      "background-color": 'purple',
+      id: 6,
+      "backgroundColor": 'purple',
       color: 'purple'
     },
     {
-      id: 6,
-      "background-color": 'indigo',
+      id: 7,
+      "backgroundColor": 'indigo',
       color: 'indigo'
     },
     {
-      id: 7,
-      "background-color": 'violet',
+      id: 8,
+      "backgroundColor": 'violet',
       color: 'violet'
     },
     {
-      id: 8,
-      "background-color": 'LightSalmon ',
+      id: 9,
+      "backgroundColor": 'LightSalmon ',
       color: 'LightSalmon'
   
     },
     {
-      id: 9,
-      "background-color": 'brown',
+      id: 10,
+      "backgroundColor": 'brown',
       color: 'brown'
     },
   ];
@@ -61,6 +61,19 @@ class Color extends Component {
         colorsArray: colors,
         score: 0,
         topScore: 0
+    };
+    shuffle = (a)  => {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    boxClick = () => {
+         this.setState({
+             colors: this.shuffle(colors)
+         });
     };
 
     render() {
@@ -77,7 +90,7 @@ class Color extends Component {
                     <p className="instruction">Click on an image to earn points, but don't click on any more than once!</p>
                     <div className="container" id="colorGrid">
                         {this.state.colorsArray.map(color => {
-                            return <div className="colorBox" style={color}>o</div>
+                            return <div className="colorBox" key={color.id} style={color} onClick={this.boxClick}>o</div>
                         })}
                     </div>
                 </div>
