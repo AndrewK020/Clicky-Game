@@ -72,7 +72,6 @@ class Color extends Component {
     }
 
     boxClick = (color_id) => {
-        console.log(this.state);
         if(!this.state.pickedArray.includes(color_id)) {
 
             this.state.pickedArray.push(color_id);
