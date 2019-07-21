@@ -72,17 +72,20 @@ class Color extends Component {
     }
 
     boxClick = (color_id) => {
-        console.log(color_id);
         console.log(this.state);
         if(!this.state.pickedArray.includes(color_id)) {
+
+            this.state.pickedArray.push(color_id);
+
             this.setState({
-                colors: this.shuffle(colors),
-                pickedArray: this.state.pickedArray.push(color_id),
-                score: this.state.score + 1
+                colorsArray: this.shuffle(colors),
+                pickedArray: this.state.pickedArray,
+                score: this.state.score + 1,
+                topScore: (this.state.score >= this.state.topScore) ? this.state.score + 1 : this.state.topScore
             });
         } else {
             this.setState({
-                colors: this.shuffle(colors),
+                colorsArray: this.shuffle(colors),
                 pickedArray: [],
                 score: 0
             });
