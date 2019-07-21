@@ -59,6 +59,7 @@ class Color extends Component {
     
     state = {
         colorsArray: colors,
+        pickedArray: [],
         score: 0,
         topScore: 0
     };
@@ -70,10 +71,22 @@ class Color extends Component {
         return a;
     }
 
-    boxClick = () => {
-         this.setState({
-             colors: this.shuffle(colors)
-         });
+    boxClick = (color_id) => {
+        console.log(color_id);
+        console.log(this.state);
+        if(!this.state.pickedArray.includes(color_id)) {
+            this.setState({
+                colors: this.shuffle(colors),
+                pickedArray: this.state.pickedArray.push(color_id),
+                score: this.state.score + 1
+            });
+        } else {
+            this.setState({
+                colors: this.shuffle(colors),
+                pickedArray: [],
+                score: 0
+            });
+        }
     };
 
     render() {
@@ -90,7 +103,7 @@ class Color extends Component {
                     <p className="instruction">Click on an image to earn points, but don't click on any more than once!</p>
                     <div className="container" id="colorGrid">
                         {this.state.colorsArray.map(color => {
-                            return <div className="colorBox" key={color.id} style={color} onClick={this.boxClick}>o</div>
+                            return <div className="colorBox" key={color.id} style={color} onClick={()=>this.boxClick(color.id)}>o</div>
                         })}
                     </div>
                 </div>
